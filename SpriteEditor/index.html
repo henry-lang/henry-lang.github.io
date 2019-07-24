@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    </head>
+    <body>
+        <h1>Sprite Editor (Good Version)</h1>
+        <input style="background: red;" type="range" min="0" max="255" value="255" class="slider" id="r">
+        <input style="background: rgb(0, 255, 0);" type="range" min="0" max="255" value="255" class="slider" id="g">
+        <input style="background: rgb(0, 0, 255);" type="range" min="0" max="255" value="255" class="slider" id="b">
+        <br>
+        <p>R: <span id="r-disp">255</span> G: <span id="g-disp">255</span> B: <span id="b-disp">255</span></p>
+        <div style="width: 100px; height: 100px; border: solid 1px black; color: aliceblue;" id="sample"></div>
+        <br><br>
+        <script src="main.js"></script>
+    </body>
+</html>
