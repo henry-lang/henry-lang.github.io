@@ -5,11 +5,16 @@
     </head>
     <body>
         <h1>Sprite Editor (Good Version)</h1>
-        <input style="background: red;" type="range" min="0" max="255" value="255" class="slider" id="r">
-        <input style="background: rgb(0, 255, 0);" type="range" min="0" max="255" value="255" class="slider" id="g">
-        <input style="background: rgb(0, 0, 255);" type="range" min="0" max="255" value="255" class="slider" id="b">
+        <button onclick="imgExport();">Export</button>
+        <br>
+        <input style="background: red;" type="range" min="0" max="255" value="255" id="r">
+        <input style="background: rgb(0, 255, 0);" type="range" min="0" max="255" value="255" id="g">
+        <input style="background: rgb(0, 0, 255);" type="range" min="0" max="255" value="255" id="b">
         <br>
         <p>R: <span id="r-disp">255</span> G: <span id="g-disp">255</span> B: <span id="b-disp">255</span></p>
+        <button onclick="tool(0);">Pen</button>
+        <button onclick="tool(1);">Eraser</button>
+        <button onclick="tool(2);">Color Picker</button>
         <div style="width: 100px; height: 100px; border: solid 1px black; color: aliceblue;" id="sample"></div>
         <br><br>
         <script src="main.js"></script>

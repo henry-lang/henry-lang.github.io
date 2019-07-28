@@ -3,11 +3,44 @@ var grid = [];
 var w;
 var h;
 var c;
+var currentTool = 0;
+var sliderR = document.getElementById("r");
+var sliderG = document.getElementById("g");
+var sliderB = document.getElementById("b");
+var spanR = document.getElementById("r-disp");
+var spanG = document.getElementById("g-disp");
+var spanB = document.getElementById("b-disp");
+var sample = document.getElementById("sample");
+
 
 function Color(r, g, b) {
     this.r = r;
     this.g = g;
     this.b = b;
+}
+
+function tool(to) {
+    currentTool = to;
+}
+
+function imgExport() {
+    var img = createImage(w, h);
+    img.loadPixels();
+    for(var x = 0; x < img.width; x++) {
+        for(var y = 0; y < img.height; y++) {
+            img.set(x, y, color(grid[x][y].r, grid[x][y].g, grid[x][y].b));
+        }
+    }
+    img.updatePixels();
+    save(img);
+}
+
+function changeCol(r, g, b) {
+    spanR.innerHTML = r;
+    spanG.innerHTML = g;
+    spanB.innerHTML = b;
+    sample.style.backgroundColor = "rgb(" + spanR.innerHTML + ", " + spanG.innerHTML + ", " + spanB.innerHTML + ")";
+    c = new Color(spanR.innerHTML, spanG.innerHTML, spanB.innerHTML);
 }
 
 function setup() {
@@ -49,7 +82,12 @@ function draw() {
                         b = 0;
                     }
                     if(mouseIsPressed) {
-                        grid[x][y] = new Color(c.r, c.g, c.b);
+                        switch(currentTool) {
+                            case 0: grid[x][y] = new Color(c.r, c.g, c.b); break;
+                            case 1: grid[x][y] = new Color(255, 255, 255); break;
+                            case 2: changeCol(grid[x][y].r, grid[x][y].g, grid[x][y].b); break;
+                        } 
+                        
                     }
                 }
             }
@@ -58,14 +96,6 @@ function draw() {
         }
     }
 }
-
-var sliderR = document.getElementById("r");
-var sliderG = document.getElementById("g");
-var sliderB = document.getElementById("b");
-var spanR = document.getElementById("r-disp");
-var spanG = document.getElementById("g-disp");
-var spanB = document.getElementById("b-disp");
-var sample = document.getElementById("sample");
 
 sliderR.oninput = function() {
     spanR.innerHTML = this.value;
