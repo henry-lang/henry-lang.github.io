@@ -57,6 +57,8 @@ function setup() {
 }
 
 function draw() {
+    var selX = Math.floor(mouseX / size);
+    var selY = Math.floor(mouseY / size);
     background(0);
     stroke(0);
     for(var x = 0; x < grid.length; x++) {
@@ -64,37 +66,34 @@ function draw() {
             var r = grid[x][y].r;
             var g = grid[x][y].g;
             var b = grid[x][y].b;
-            if(dist(mouseX, mouseY, x * size + size / 2, y * size + size / 2) <= size / 2) {
-                if(mouseX >= x * size && mouseX <= x * size + size && mouseY >= y * size && mouseY <= y * size + size) {
-                    if(r >= 20) {
-                        r -= 20;
-                    } else {
-                        r = 0;
-                    }
-                    if(g >= 20) {
-                        g -= 20;
-                    } else {
-                        g = 0;
-                    }
-                    if(b >= 20) {
-                        b -= 20;
-                    } else {
-                        b = 0;
-                    }
-                    if(mouseIsPressed) {
-                        switch(currentTool) {
-                            case 0: grid[x][y] = new Color(c.r, c.g, c.b); break;
-                            case 1: grid[x][y] = new Color(255, 255, 255); break;
-                            case 2: changeCol(grid[x][y].r, grid[x][y].g, grid[x][y].b); break;
-                        } 
-                        
-                    }
+            if(x == selX && y == selY) {
+                if(r >= 20) {
+                    r -= 20;
+                } else {
+                    r = 0;
+                }
+                if(g >= 20) {
+                    g -= 20;
+                } else {
+                    g = 0;
+                }
+                if(b >= 20) {
+                    b -= 20;
+                } else {
+                    b = 0;
+                }
+                if(mouseIsPressed) {
+                    switch(currentTool) {
+                        case 0: grid[x][y] = new Color(c.r, c.g, c.b); break;
+                        case 1: grid[x][y] = new Color(255, 255, 255); break;
+                        case 2: changeCol(grid[x][y].r, grid[x][y].g, grid[x][y].b); break;
+                    } 
                 }
             }
             fill(r, g, b);
             rect(x * size, y * size, x * size + size, y * size + size);
         }
-    }
+    }        
 }
 
 sliderR.oninput = function() {
