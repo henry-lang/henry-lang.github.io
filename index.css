@@ -4,7 +4,12 @@ body {
 	background-color: #FAD961;
 	background-image: linear-gradient(60deg, #FAD961 0%, #F76B1C 100%);
 	background-repeat: no-repeat;
-    background-attachment: fixed;
+	background-attachment: fixed;
+	-webkit-animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    -ms-animation: fadein 1.5s;
+    -o-animation: fadein 1.5s;
+    animation: fadein 1.5s;
 }
 
 .heading {
@@ -23,17 +28,23 @@ body {
 .heading p {
 	font-size: 25px;
 	padding-top: 0px;
+	
 }
 
 button {
 	cursor: pointer;
 	font-family: 'Rubik', sans-serif;
 	font-size: 20px;
-	background-image: linear-gradient(to bottom right, #1fbefd, #ef42ff);
-	border: none;
+	border: 2px #2e2e2e none;
 	border-radius: 50px;
 	width: 85px;
 	height: 40px;
+	background-color: #2e2e2e;
+	color: #616161;
+}
+
+button text {
+	opacity: 0;
 }
 
 nav {
@@ -72,8 +83,34 @@ nav ul li:last-child {
 
 nav ul li a {
 	font-family: 'Rubik', sans-serif;
+	font-size: 25px;
     display: block;
     text-decoration: none;
     color: #616161;
-    padding: 10px 0;
+    padding: 15px 0;
+} 
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }

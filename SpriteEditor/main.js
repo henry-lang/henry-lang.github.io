@@ -57,43 +57,36 @@ function setup() {
 }
 
 function draw() {
-    var selX = Math.floor(mouseX / size);
-    var selY = Math.floor(mouseY / size);
     background(0);
     stroke(0);
     for(var x = 0; x < grid.length; x++) {
         for(var y = 0; y < grid[x].length; y++) {
-            var r = grid[x][y].r;
-            var g = grid[x][y].g;
-            var b = grid[x][y].b;
-            if(x == selX && y == selY) {
-                if(r >= 20) {
-                    r -= 20;
-                } else {
-                    r = 0;
-                }
-                if(g >= 20) {
-                    g -= 20;
-                } else {
-                    g = 0;
-                }
-                if(b >= 20) {
-                    b -= 20;
-                } else {
-                    b = 0;
-                }
-                if(mouseIsPressed) {
-                    switch(currentTool) {
-                        case 0: grid[x][y] = new Color(c.r, c.g, c.b); break;
-                        case 1: grid[x][y] = new Color(255, 255, 255); break;
-                        case 2: changeCol(grid[x][y].r, grid[x][y].g, grid[x][y].b); break;
-                    } 
-                }
-            }
-            fill(r, g, b);
+            fill(grid[x][y].r, grid[x][y].g, grid[x][y].b);
             rect(x * size, y * size, x * size + size, y * size + size);
         }
-    }        
+    }
+    var x = constrain(Math.floor(mouseX / size), 0, w);
+    var y = constrain(Math.floor(mouseY / size), 0, h);
+    //var r = grid[x][y].r;
+    //var g = grid[x][y].g;
+    //var b = grid[x][y].b;
+    if(r >= 20) {
+        r -= 20
+    } else {
+        r = 0
+    }
+    if(g >= 20) {
+        g -= 20
+    } else {
+        g = 0
+    }
+    if(b >= 20) {
+        b -= 20
+    } else {
+        b = 0
+    }
+    fill(r, g, b);
+    rect(x * size, y * size, x * size + size, y * size + size);
 }
 
 sliderR.oninput = function() {
