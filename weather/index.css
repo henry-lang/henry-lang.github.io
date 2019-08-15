@@ -9,7 +9,12 @@ body {
     background-color: #08AEEA;
     background-image: linear-gradient(27deg, #08AEEA 0%, #2AF598 100%);
     background-repeat: no-repeat;
-	background-attachment: fixed;
+    background-attachment: fixed;
+    -webkit-animation: fadein 1.5s;
+    -moz-animation: fadein 1.5s;
+    -ms-animation: fadein 1.5s;
+    -o-animation: fadein 1.5s;
+    animation: fadein 1.5s;
 }
 
 input[type=text] {
@@ -73,4 +78,29 @@ input[type=submit] {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;  
     cursor: pointer;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
