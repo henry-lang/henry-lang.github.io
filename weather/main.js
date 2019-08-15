@@ -15,7 +15,6 @@ function onSubmit() {
         }
         $("#conditions").text(conditions)
         $("#temp").text(Math.round(data.main.temp).toString() + " F");
-        	console.log(data);
     	})
     	$(".title").hide(1000);
        	$("#error").text("");
@@ -29,12 +28,12 @@ function onSubmit() {
 }
 
 function showWeather() {
-	$("#weather").css("display", "block").hide().show(1000);
+	$("#weather").css("display", "block").hide().show(500);
 }
 
 function hideWeather() {
-    $("#weather").hide(1000);
-    $(".title").show(1000);
+    $("#weather").hide(500);
+    $(".title").show(500);
     $("#title").text("WeatherApp - Home");
 }
 

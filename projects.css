@@ -29,6 +29,13 @@ body {
 	padding-top: 0px;
 }
 
+a {
+	font-size: 25px;
+	padding-top: 0px;
+	text-decoration: none;
+	color: #2e2e2e;
+}
+
 button {
 	cursor: pointer;
 	font-family: 'Rubik', sans-serif;
