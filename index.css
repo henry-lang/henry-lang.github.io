@@ -37,14 +37,10 @@ button {
 	font-size: 20px;
 	border: 2px #2e2e2e none;
 	border-radius: 50px;
-	width: 85px;
-	height: 40px;
+	padding: 10px;
+	border: 3px #616161 solid;
 	background-color: #2e2e2e;
 	color: #616161;
-}
-
-button text {
-	opacity: 0;
 }
 
 nav {
