@@ -11,25 +11,26 @@ $mid: #424c57
 $dark: #21272f
 $very-dark: #1b2129
 
-*
-    box-sizing: border-box
-
-a, p
+h1, a, p
     color: $text
     font-family: 'Iosevka'
 
-nav
-    a
+nav >
+    *
+        display: inline-block
         font-weight: bold
+    a
         color: $accent
+        padding-right: 10px
 
 body
     padding: 0
     margin: 0
     background-color: $very-dark
 
-.content
+.wrapper
     background-color: $dark
+    box-sizing: border-box
     border:
         left: 1px solid $mid
         right: 1px solid $mid
@@ -37,6 +38,7 @@ body
         top: 10px
         left: 2.5vw
         right: 2.5vw
+        bottom: 0
     margin: auto
     width: 80vw
     min-height: 100vh
