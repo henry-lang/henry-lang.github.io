@@ -5,6 +5,15 @@
     font-family: Iosevka
     src: url(../fonts/iosevka-regular.ttf)
 
+@keyframes fadein
+    from
+        opacity: 0
+        transform: translateX(20px)
+
+    to
+        opacity: 100%
+        transform: translateX(0px)
+
 $accent: #4fb8ff
 $text: #92a1ae
 $mid: #424c57
@@ -15,13 +24,31 @@ h1, a, p
     color: $text
     font-family: 'Iosevka'
 
-nav >
-    *
-        display: inline-block
-        font-weight: bold
-    a
-        color: $accent
-        padding-right: 10px
+nav
+    padding-top: 0.25rem
+    border-bottom: 1px solid $mid
+
+    >
+        *
+            display: inline-block
+            font-weight: bold
+        a
+            color: $accent
+            padding-right: 0.15rem
+
+footer
+    // position: relative
+    margin-top: -0.25rem
+    width: 100%
+    border-top: 1px solid $mid
+
+    >
+        *
+            display: inline-block
+            font-weight: bold
+        a
+            color: $accent
+            padding-right: 0.15rem
 
 body
     padding: 0
@@ -35,10 +62,15 @@ body
         left: 1px solid $mid
         right: 1px solid $mid
     padding:
-        top: 10px
+        top: 0
+        bottom: 0
         left: 2.5vw
         right: 2.5vw
-        bottom: 0
     margin: auto
     width: 80vw
     min-height: 100vh
+    animation: fadein 0.3s 0s
+
+    >
+        *
+            animation: fadein 0.35s
