@@ -6,15 +6,6 @@
 //     font-display: swap
 //     src: url(../fonts/iosevka-regular.ttf)
 
-@keyframes fadein
-    from
-        opacity: 0
-        transform: translateX(20px)
-
-    to
-        opacity: 100%
-        transform: translateX(0px)
-
 $font: Iosevka
 $backup-font: Arial
 
@@ -24,35 +15,40 @@ $mid: #424c57
 $dark: #21272f
 $very-dark: #1b2129
 
+@keyframes fadein
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+@mixin bar-links
+    >
+        p::after
+            content: " | "
+
+        *
+            display: inline-block
+            font-weight: bold
+        a
+            color: $accent
+            padding-right: 0.15rem
+
 h1, a, p
     color: $text
     font-family: $font, $backup-font
 
 nav
+    @include bar-links
+
     padding-top: 0.25rem
     border-bottom: 1px solid $mid
 
-    >
-        *
-            display: inline-block
-            font-weight: bold
-        a
-            color: $accent
-            padding-right: 0.15rem
-
 footer
-    // position: relative
+    @include bar-links
+
     margin-top: -0.25rem
     width: 100%
     border-top: 1px solid $mid
-
-    >
-        *
-            display: inline-block
-            font-weight: bold
-        a
-            color: $accent
-            padding-right: 0.15rem
 
 body
     padding: 0
@@ -73,8 +69,4 @@ body
     margin: auto
     width: 80vw
     min-height: 100vh
-    // animation: fadein 0.3s 0s
-
-    // >
-    //     *
-    //         animation: fadein 0.35s
+    animation: fadein 0.35s

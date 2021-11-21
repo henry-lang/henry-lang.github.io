@@ -2,7 +2,7 @@ description: >-
   Random thoughts about my passions.
 
 sass:
-  style: expanded
+  style: compact
 
 theme: null
 url: "henrylang.net"
