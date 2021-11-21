@@ -1,13 +1,7 @@
 ---
 ---
 
-// @font-face
-//     font-family: Iosevka
-//     font-display: swap
-//     src: url(../fonts/iosevka-regular.ttf)
-
-$font: Iosevka
-$backup-font: Arial
+$font: Iosevka, Arial
 
 $accent: #4fb8ff
 $text: #92a1ae
@@ -15,11 +9,18 @@ $mid: #424c57
 $dark: #21272f
 $very-dark: #1b2129
 
+@font-face
+    font-family: Iosevka
+    font-display: swap
+    src: url(/assets/fonts/iosevka-regular.woff2) format("woff2")
+
 @keyframes fadein
     from
         opacity: 0
+        transform: translateX(30px)
     to
         opacity: 1
+        transform: translateX(0px)
 
 @mixin bar-links
     >
@@ -35,7 +36,7 @@ $very-dark: #1b2129
 
 h1, a, p
     color: $text
-    font-family: $font, $backup-font
+    font-family: $font
 
 nav
     @include bar-links
@@ -69,4 +70,7 @@ body
     margin: auto
     width: 80vw
     min-height: 100vh
-    animation: fadein 0.35s
+
+    >
+        *
+            animation: fadein 0.35s
