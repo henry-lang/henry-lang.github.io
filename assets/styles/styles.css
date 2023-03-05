@@ -1,0 +1,67 @@
+---
+---
+
+@font-face {
+    font-family: Iosevka;
+    font-display: swap;
+    src: url(/assets/fonts/iosevka-regular.woff2) format("woff2");
+}
+
+body {
+    background-color: var(--bg-0);
+    font-family: Iosevka;
+}
+
+p {
+    color: var(--fg-0);
+}
+
+a {
+    color: var(--blue);
+}
+
+.navbar {
+    background-color: var(--bg-2);
+}
+
+.navbar * {
+    display: inline-block;
+}
+
+:root[data-palette="dark"] {
+    --bg-dim: #1b1b1b;
+    --bg-0: #282828;
+    --bg-1: #32302f;
+    --bg-2: #32302f;
+    --bg-3: #45403d;
+    --bg-4: #45403d;
+    --bg-5: #5a524c; 
+    --fg-0: #d4be98;
+    --fg-1: #ddc7a1;
+    --red: #ea6962;
+    --orange: #e78a4e;
+    --yellow: #d8a657;
+    --green: #a9b665;
+    --aqua: #89b482;
+    --blue: #7daea3;
+    -purple: #d3869b;
+}
+
+:root[data-palette="light"] {
+        --bg-dim: #f2e5bc;
+        --bg-0: #fbf1c7;
+        --bg-1: #f4e8be;
+        --bg-2: #f2e5bc;
+        --bg-3: #eee0b7;
+        --bg-4: #e5d5ad;
+        --bg-5: #ddccab;
+        --fg-0: #654715;
+        --fg-1: #4f3829;
+        --red: #c14a4a;
+        --orange: #c35e0a;
+        --yellow: #b47109;
+        --green: #6c782e;
+        --aqua: #4c7a5d;
+        --blue: #45707a;
+        --purple: #945e80;
+}
