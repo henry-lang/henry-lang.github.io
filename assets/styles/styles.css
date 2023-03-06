@@ -7,8 +7,11 @@
     src: url(/assets/fonts/iosevka-regular.woff2) format("woff2");
 }
 
-body {
+html, body {
+    padding: 0;
+    margin: 0;
     background-color: var(--bg-0);
+    overflow-x: clip;
     font-family: Iosevka;
 }
 
@@ -20,12 +23,70 @@ a {
     color: var(--blue);
 }
 
+.ascii {
+    white-space: pre;
+    font-size: 2rem;
+}
+
+.splash-ascii {
+    display:flex;
+    width: 80%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 10px;
+}
+
 .navbar {
     background-color: var(--bg-2);
 }
 
 .navbar * {
     display: inline-block;
+}
+
+.navbar:first-child {
+    padding-left: 0.5rem;
+}
+
+.splash {
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.raindrop {
+    
+}
+
+#name {
+    color: var(--fg-0);
+    font-size: 4rem;
+    position: relative;
+}
+
+#name::before,
+#name::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#name::before {
+    background: var(--bg-0);
+    animation: typing 0.5s steps(14) forwards 1s;
+}
+
+@keyframes typing {
+    to {
+        left: 100%;
+    }
 }
 
 :root[data-palette="dark"] {

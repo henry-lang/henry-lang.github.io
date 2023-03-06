@@ -31,7 +31,7 @@ function setAppliedPalette(palette) {
 const userPalette = getUserPalette()
 setAppliedPalette(getAppliedPalette(userPalette))
 document.querySelector("#toggle-palette").addEventListener("click", () => {
-    const newPalette = rotateUserPalette(getUserPalette());
-    setAppliedPalette(newPalette);
+    const newPalette = rotateUserPalette(getUserPalette())
+    setAppliedPalette(newPalette)
     setUserPalette(newPalette)
 });
