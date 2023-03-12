@@ -11,9 +11,6 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Minify Action
-        defaults:
-          run:
-            working-directory: ./_site
         uses: anthonyftwang/minify-action@v1.0.1
 
       - name: Auto-commit to repository
