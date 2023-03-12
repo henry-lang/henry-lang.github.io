@@ -37,12 +37,6 @@ jobs:
         id: pages
         uses: actions/configure-pages@v1
 
-      - name: Build with Jekyll
-        # Defaults output to '/_site'
-        run: bundle exec jekyll build --baseurl ${{ steps.pages.outputs.base_path }} --profile --trace
-        env:
-          JEKYLL_ENV: production
-
       - name: Install Minify deb package on Ubuntu
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: apt-get update && apt-get install --no-install-recommends --yes minify
