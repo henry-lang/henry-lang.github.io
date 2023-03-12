@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
+    working-directory: ./_site
     steps:
       # Checks-out your repository
       - uses: actions/checkout@v2
