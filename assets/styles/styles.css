@@ -7,11 +7,15 @@
     src: url(/assets/fonts/iosevka-regular.woff2) format("woff2");
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 html, body {
     padding: 0;
     margin: 0;
     background-color: var(--bg-0);
-    overflow-x: clip;
+    overflow-x: hidden;
     font-family: var(--font);
 }
 
