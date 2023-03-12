@@ -7,8 +7,18 @@
     src: url(/assets/fonts/iosevka-regular.woff2) format("woff2");
 }
 
-::-webkit-scrollbar {
-    display: none;
+
+body::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+    display:none;        /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: var(--fg-1);    /* color of the scroll thumb */
+    border-radius: 2px;       /* roundness of the scroll thumb */
 }
 
 html, body {
@@ -42,17 +52,27 @@ a {
 
 .ascii {
     white-space: pre;
-    font-size: 1rem;
+    font-size: calc(1vw + 1vh);
 }
 
 .splash-ascii {
-    display:flex;
+    display: flex;
     width: 80%;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
     top: 10px;
+}
+
+.sea {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    color: var(--blue);
+    position: absolute;
+    bottom: 0vh;
+    left: 0;
 }
 
 .navbar {
