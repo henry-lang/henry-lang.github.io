@@ -1,11 +1,13 @@
 name: Minify
 # on: [push, workflow_dispatch]
+on:
+  workflow_run:
+    workflows: ["pages-build-deployment"]
+    types:
+      - completed
 
 jobs:
-  build:
-    defaults:
-        run:
-          working-directory: ./_site
+  minify:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository
@@ -14,7 +16,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Minify Action
-        uses: anthonyftwang/minify-action@v1.0.1
+        uses: henry-lang/pages-minify-action@v1
 
       - name: Auto-commit to repository
         uses: stefanzweifel/git-auto-commit-action@v4
