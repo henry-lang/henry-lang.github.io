@@ -1,86 +1,23 @@
-# Workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Page
-
+name: Minify
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-env:
-  RUBY_VERSION: "3.1"
+    branches: [ main ]
 
 jobs:
-  # Build job
   build:
-    name: build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v1
-
-      - name: Install Minify deb package on Ubuntu
-        # if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: apt-get update && apt-get install --no-install-recommends --yes minify
-
-      # # https://github.com/tdewolff/homebrew-tap/
-      # - name: Install Minify using Homebrew
-      #   run: brew install tdewolff/tap/minify
-
-      # https://github.com/tdewolff/minify/tree/master/cmd/minify#usage
-      - name: Minify HTML files
-        run: |
-          minify --type=html --recursive --output "./" --match=\.html "./_site/" \
-          --html-keep-conditional-comments \
-          --html-keep-default-attrvals \
-          --html-keep-document-tags \
-          --html-keep-end-tags \
-          --html-keep-quotes \
-          --verbose
-      - name: Minify CSS files
-        run: |
-          minify --type=css --recursive --output "./" --match=\.css "./_site/"
-
-      # - name: Minify JSON files
-      #   run: |
-      #     minify --type=json --recursive --output "./" --match=\.json "./_site/" --verbose || true
-
-      - name: Upload artifact
-        # This will automatically upload an artifact from the '/_site' directory
-        uses: actions/upload-pages-artifact@v1
-        if: ${{ success() && github.ref == 'refs/heads/main' }}
+      # Checks-out your repository
+      - uses: actions/checkout@v2
         with:
-          path: ./_site/
+          ref: ${{ github.ref }}
 
-  # Deployment job
-  deploy:
-    name: deploy
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    if: ${{ github.ref == 'refs/heads/main' }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
-        if: ${{ success() }}
+      - name: Minify Action
+        working-directory: ./_site
+        uses: anthonyftwang/minify-action@v1.0.1
+
+      # Auto-commit to repository
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Minify source code
+          branch: ${{ github.ref }}
