@@ -11,11 +11,13 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Minify Action
-        working-directory: ./_site
+        defaults:
+          run:
+            working-directory: ./_site
         uses: anthonyftwang/minify-action@v1.0.1
 
-      # Auto-commit to repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Auto-commit to repository
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Minify source code
           branch: ${{ github.ref }}
