@@ -33,14 +33,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          # Not needed with a .ruby-version file
-          ruby-version: ${{ env.RUBY_VERSION }}
-          # Runs 'bundle install' and caches installed gems automatically
-          bundler-cache: true
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v1
@@ -51,13 +43,13 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      # - name: Install Minify deb package on Ubuntu
-      #   if: ${{ matrix.os == 'ubuntu-latest' }}
-      #   run: apt-get update && apt-get install --no-install-recommends --yes minify
+      - name: Install Minify deb package on Ubuntu
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        run: apt-get update && apt-get install --no-install-recommends --yes minify
 
-      # https://github.com/tdewolff/homebrew-tap/
-      - name: Install Minify using Homebrew
-        run: brew install tdewolff/tap/minify
+      # # https://github.com/tdewolff/homebrew-tap/
+      # - name: Install Minify using Homebrew
+      #   run: brew install tdewolff/tap/minify
 
       # https://github.com/tdewolff/minify/tree/master/cmd/minify#usage
       - name: Minify HTML files
