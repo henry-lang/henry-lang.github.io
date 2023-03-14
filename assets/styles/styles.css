@@ -52,7 +52,7 @@ a {
 
 .ascii {
     white-space: pre;
-    font-size: calc(1vw + 1vh);
+    font-size: calc(3vmin);
 }
 
 .splash-ascii {
