@@ -14,22 +14,12 @@ function rotateUserPalette() {
         : 'light'
 }
 
-function getAppliedPalette(palette) {
-    if (palette === 'light') {
-        return 'light'
-    }
-
-    if (palette === 'dark') {
-        return 'dark'
-    }
-}
-
 function setAppliedPalette(palette) {
     document.documentElement.dataset.palette = palette
 }
 
 const userPalette = getUserPalette()
-setAppliedPalette(getAppliedPalette(userPalette))
+setAppliedPalette(userPalette)
 document.querySelector("#toggle-palette").addEventListener("click", () => {
     const newPalette = rotateUserPalette(getUserPalette())
     setAppliedPalette(newPalette)
