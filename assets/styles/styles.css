@@ -10,7 +10,7 @@ body::-webkit-scrollbar {
 }
   
 body::-webkit-scrollbar-track {
-    display:none;        /* color of the tracking area */
+    display: none;        /* color of the tracking area */
 }
   
 body::-webkit-scrollbar-thumb {
@@ -36,20 +36,18 @@ a {
 
 .overlay {
     background-color: var(--bg-0);
-    font-size: 1.5rem;
-    color: var(--fg-0);
     position: absolute;
     top: 0;
     left: 0;
-    margin: 0;
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
     z-index: 100;
 }
 
 .ascii {
     white-space: pre;
     font-size: calc(3vmin);
+    word-wrap: normal;
 }
 
 .splash-ascii {
@@ -93,10 +91,6 @@ a {
     display: flex;
 }
 
-.raindrop {
-    
-}
-
 #name {
     color: var(--fg-0);
     font-size: calc(4vw + 4vh);
@@ -125,7 +119,7 @@ a {
 }
 
 :root {
-    --font: Iosevka;
+    --font: Iosevka, monospace, 'Courier';
 }
 
 :root[data-palette="dark"] {

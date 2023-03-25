@@ -7,7 +7,7 @@ function setUserPalette(palette) {
 }
 
 function rotateUserPalette() {
-    let userPalette = getUserPalette();
+    let userPalette = getUserPalette()
 
     return userPalette == 'light'
         ? 'dark'
