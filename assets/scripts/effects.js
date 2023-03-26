@@ -47,19 +47,17 @@ function rgbToHex(color){
     return hex;
 }
 const fontHex = rgbToHex(asciiStyle.color)
+ctx.fillStyle = fontHex
+
 window.setInterval(() => {
     ctx.clearRect(0, 0, overlay.width, overlay.height)
-    for(let i = 0; i < overlay.height / h; i++) {
-        for(let j = 0; j < overlay.width / w; j++) {
-            let alpha = Math.floor(i / (overlay.height / h) * 255).toString(16)
-            if(alpha.length == 1) {
-                alpha = '0' + alpha
-            }
-            ctx.fillStyle = `${fontHex}${alpha}`
-            ctx.fillText(choose(overlayChars), j * w, (i + 1) * h);
+    for(let i = 0; i < screenHeightChars; i++) {
+        for(let j = 0; j < screenWidthChars; j++) {
+            
+            ctx.fillText(choose(overlayChars), w * j, (h) * (i + 1))
         }
     }
-}, 1000/5)
+}, 1000/8)
 
 function setOptimizedInterval(element, render, tps) {
     render()
