@@ -48,16 +48,21 @@ function rgbToHex(color){
 }
 const fontHex = rgbToHex(asciiStyle.color)
 ctx.fillStyle = fontHex
-
-window.setInterval(() => {
-    ctx.clearRect(0, 0, overlay.width, overlay.height)
-    for(let i = 0; i < screenHeightChars; i++) {
-        for(let j = 0; j < screenWidthChars; j++) {
-            
-            ctx.fillText(choose(overlayChars), w * j, (h) * (i + 1))
+let frames = 0
+function render() {
+    if(frames % 10 == 0) {
+        ctx.clearRect(0, 0, overlay.width, overlay.height)
+        for(let i = 0; i < screenHeightChars; i++) {
+            for(let j = 0; j < screenWidthChars; j++) {
+                ctx.fillText(choose(overlayChars), w * j, (h) * (i + 1))
+            }
         }
     }
-}, 1000/8)
+    window.requestAnimationFrame(render)
+    frames++
+}
+
+render()
 
 function setOptimizedInterval(element, render, tps) {
     render()

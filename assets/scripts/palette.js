@@ -20,8 +20,8 @@ function setAppliedPalette(palette) {
 
 const userPalette = getUserPalette()
 setAppliedPalette(userPalette)
-document.querySelector("#toggle-palette").addEventListener("click", () => {
-    const newPalette = rotateUserPalette(getUserPalette())
-    setAppliedPalette(newPalette)
-    setUserPalette(newPalette)
-});
+// document.querySelector("#toggle-palette").addEventListener("click", () => {
+//     const newPalette = rotateUserPalette(getUserPalette())
+//     setAppliedPalette(newPalette)
+//     setUserPalette(newPalette)
+// });

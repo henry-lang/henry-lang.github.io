@@ -3,3 +3,14 @@ description: >-
 
 theme: null
 url: "henrylang.net"
+future: true
+
+maps_api: AIzaSyAbxcgPcT1lOkuA-3V9GGXBS4Qdx5Ymxiw
+
+collections:
+  pages:
+    output: true
+    permalink: /:title
+  diary:
+    output: true
+    permalink: /:collection/:year-:month-:day/

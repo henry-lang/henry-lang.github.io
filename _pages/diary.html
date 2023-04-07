@@ -1,0 +1,27 @@
+---
+layout: default
+title: Henry's Diary
+---
+
+<h1>Henry's Diary</h1>
+<p>Don't expect to find anything interesting here. I'm just writing down my thoughts and what I do each day, to both get better at writing and reference myself later in life.</p>
+<p>Also, building this diary using Jekyll and Javascript was pretty fun: The calendar below you was actually a bit annoying to make.</p>
+
+<div class="calendar-wrapper">
+    <div class="calendar-month-container">
+        <button class="calendar-change-month calendar-backwards">&lt;</button>
+        <h1 class="calendar-month"></h1>
+        <button class="calendar-change-month calendar-forwards">&gt;</button>
+    </div>
+    <ol class="calendar">
+        <!-- Will be populated by calendar.js -->
+    </ol>
+</div>
+
+<script>
+const diaryEntries = {
+    {% for post in site.diary %}'{{post.date | date: "%m-%d-%Y" | replace: "-", "/"}}': {url: '{{ site.baseurl }}{{ post.url }}'},{% endfor %}
+}
+</script>
+
+<script defer src="/assets/scripts/calendar.js"></script>

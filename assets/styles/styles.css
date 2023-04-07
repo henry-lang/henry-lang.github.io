@@ -4,6 +4,19 @@
     src: url(/assets/fonts/iosevka-regular.woff2) format("woff2");
 }
 
+@font-face {
+    font-family: Iosevka Etoile;
+    font-display: swap;
+    src: url(/assets/fonts/iosevka-etoile-regular.woff2) format("woff2");
+}
+
+::selection {
+    background: var(--bg-5);
+}
+
+::-moz-selection {
+    background: var(--bg-5);
+}
 
 body::-webkit-scrollbar {
     width: 5px;               /* width of the entire scrollbar */
@@ -14,7 +27,7 @@ body::-webkit-scrollbar-track {
 }
   
 body::-webkit-scrollbar-thumb {
-    background-color: var(--fg-1);    /* color of the scroll thumb */
+    background: var(--fg-1);    /* color of the scroll thumb */
     border-radius: 2px;       /* roundness of the scroll thumb */
 }
 
@@ -23,15 +36,24 @@ html, body {
     margin: 0;
     background-color: var(--bg-0);
     overflow-x: hidden;
-    font-family: var(--font);
+    font-family: var(--font-long);
 }
 
-p {
+h1, p {
     color: var(--fg-0);
+}
+
+h1 {
+    font-family: var(--font);
 }
 
 a {
     color: var(--blue);
+}
+
+.wrapper {
+    width: 80vw;
+    margin: auto;
 }
 
 .overlay {
@@ -118,8 +140,52 @@ a {
     }
 }
 
+.outmonth {
+    opacity: 30%;
+}
+
+.calendar-month-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 300px;
+}
+
+.calendar-change-month {
+    border: none;
+    background: none;
+    color: var(--blue);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.calendar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.calendar-day {
+    color: var(--fg-1);
+    width: 50px;
+    height: 30px;
+}
+
 :root {
     --font: Iosevka, monospace, 'Courier';
+    --font-long: Iosevka Etoile, monospace, 'Courier';
 }
 
 :root[data-palette="dark"] {
@@ -138,7 +204,7 @@ a {
     --green: #a9b665;
     --aqua: #89b482;
     --blue: #7daea3;
-    -purple: #d3869b;
+    --purple: #d3869b;
 }
 
 :root[data-palette="light"] {
