@@ -21,7 +21,7 @@ body {
     position: absolute;
     bottom: 0px;
     left: 2px;
-    font-size: calc(0.75vw + 0.75vh);
+    font-size: calc(1vw + 1vh);
 }
 
 .text {
@@ -46,4 +46,48 @@ body {
 #display {
     font-weight: 600;
     font-size: calc(5vw + 5vh)
+}
+
+.customizer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    margin-right: 10px;
+}
+
+.customizer label {
+    margin-right: 5px;
+    font-size: calc(1vw + 1vh);
+}
+
+.customizer .decimal-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.customizer .decimal-wrapper button {
+    border-radius: 2px;
+    color: whitesmoke;
+    border: none;
+    background: none;
+    font-weight: bold;
+    padding: 4px 8px;
+
+    font-size: calc(1vw + 1vh);
+    cursor: pointer;
+}
+
+.customizer .decimal-wrapper button:hover {
+    color: whitesmoke;
+}
+
+.customizer #decimal-display {
+    background: whitesmoke;
+    color: #0f4d92;
+    font-weight: bold;
+    padding: 4px 8px;
+    font-size: calc(1vw + 1vh);
 }
