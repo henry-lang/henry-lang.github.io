@@ -26,8 +26,8 @@ plusBtn.addEventListener('click', () => {
 
 const display = document.getElementById('display');
 
-const startDate = new Date('2023-06-15T12:30:00');
-const endDate = new Date('2023-09-05T08:20:00');
+const startDate = new Date('2023-09-05T08:20:00');
+const endDate = new Date('2024-06-14T12:30:00');
 
 function getPercentage() {
     const startTimestamp = startDate.getTime();
