@@ -40,12 +40,13 @@ function getPercentage() {
         return 100;
     } else {
         const percentage = ((currentTimestamp - startTimestamp) / (endTimestamp - startTimestamp)) * 100;
-        return toFixedTrunc(percentage, decimalPlaces); // Round to two decimal places
+        return toFixedTrunc(percentage > 100 ? 100 : percentage, decimalPlaces); // Round to two decimal places
     }
 }
 
 function render() {
-    const newP = getPercentage() + '%';
+    const percentage = getPercentage()
+    const newP = percentage + '%';
     if(display.innerText != newP) {
         display.innerText = newP;
     }
